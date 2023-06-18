@@ -18,6 +18,8 @@ def dimes(x):
 
 menu_options = ('P', 'Q' , 'N', 'D', 'E')
 
+product_price = int(input("Give me the product's price.\nIf there is no product then enter 0"))
+
 while True:
     print ("**MENU**")
     print ("P for Pennies")
@@ -48,7 +50,12 @@ while True:
             total+=nickels(int (money))
         
         elif user_input == 'E':
+            print()
+            Change = product_price - total
             print("You have a total of ", total , " Dollars")
+            
+            if Change <0 and product_price != 0:
+                print("we owe ", round(Change,2))
             break
     
     
