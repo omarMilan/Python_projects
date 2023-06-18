@@ -1,0 +1,50 @@
+def pennies(x):
+    y = x * .01
+    return print("Overall, you have ", y , "dollar")
+    
+def quarters(x):
+    y = x * .25
+    return print("Overall, you have ", y, "dollar")
+    
+def nickels(x):
+    y = x * .5
+    return print("Overall, you have ", y, "dollar")
+    
+def dimes(x):
+    y = x * .1
+    return print("Overall, you have ", y, "dollar")
+    
+
+menu_options = ('P', 'Q' , 'N', 'D')
+
+while True:
+    print ("**MENU**")
+    print ("P for Pennies")
+    print ("Q for quarters")
+    print ("N for nickels")
+    print ("D for dimes")
+    
+    print()
+    user_input = input("Enter an option")
+    
+    if user_input == 'P':
+        money = input("How many Pennies do you have?")
+        pennies(int (money))
+        break
+    elif user_input == 'Q':
+        money = input("How many quarters do you have?")
+        quarters(int (money))
+        break
+    elif user_input == 'D':
+        money = input("How many dimes do you have?")
+        dimes(int (money))
+        break
+    elif user_input == 'N':
+        money = input("How many nickels do you have?")
+        nickels(int (money))
+        break
+    else:
+        print("**Option not available**")
+        break
+    
+    
