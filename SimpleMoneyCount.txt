@@ -1,3 +1,7 @@
+#This code consists of two functions. 
+#The first function calculates the total amount of USD coins you have and provides the result. 
+#The second function determines the amount that the Cashier will need to give you back as change.
+
 total =0
 
 def pennies(x):
