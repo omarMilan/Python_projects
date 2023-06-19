@@ -2,69 +2,70 @@
 #The first function calculates the total amount of USD coins you have and provides the result. 
 #The second function determines the amount that the Cashier will need to give you back as change.
 
-total =0
+def calculate_pennies(amount):
+    return amount * 0.01
 
-def pennies(x):
-    return x * .01
-    
-    
-def quarters(x):
-    return x * .25
-    
-    
-def nickels(x):
-    return x * .5
-    
-    
-def dimes(x):
-    return x * .1
-   
+def calculate_quarters(amount):
+    return amount * 0.25
 
-menu_options = ('P', 'Q' , 'N', 'D', 'E')
+def calculate_nickels(amount):
+    return amount * 0.5
 
-product_price = int(input("Give me the product's price.\nIf there is no product then enter 0"))
+def calculate_dimes(amount):
+    return amount * 0.1
+
+def calculate_dollars(amount):
+    return amount
+
+menu_options = ('P', 'Q', 'N', 'D', 'B', 'E')
+
+product_price = int(input("Enter the product's price (enter 0 if there is no product): "))
+total_dollars = 0
+total_cents = 0
 
 while True:
-    print ("**MENU**")
-    print ("P for Pennies")
-    print ("Q for quarters")
-    print ("N for nickels")
-    print ("D for dimes")
-    print ("E to calculate your total")
+    print("**MENU**")
+    print("P - Pennies")
+    print("Q - Quarters")
+    print("N - Nickels")
+    print("D - Dimes")
+    print("B - 1 Dollar Bills")
+    print("E - Calculate total")
     
     print()
-    user_input = input("Enter an option")
+    user_input = input("Enter an option: ").upper()
     
     if user_input in menu_options: 
-    
         if user_input == 'P':
-            money = int(input("How many Pennies do you have?"))
-            total+= pennies(int (money))
+            money = int(input("How many pennies do you have? "))
+            total_cents += calculate_pennies(money)
             
         elif user_input == 'Q':
-            money = int(input("How many quarters do you have?"))
-            total+=quarters(int (money))
+            money = int(input("How many quarters do you have? "))
+            total_cents += calculate_quarters(money)
             
         elif user_input == 'D':
-            money = int(input("How many dimes do you have?"))
-            total+=dimes(int (money))
+            money = int(input("How many dimes do you have? "))
+            total_cents += calculate_dimes(money)
             
         elif user_input == 'N':
-            money = int(input("How many nickels do you have?"))
-            total+=nickels(int (money))
+            money = int(input("How many nickels do you have? "))
+            total_cents += calculate_nickels(money)
+        
+        elif user_input == 'B':
+            money = int(input("How many 1 dollar bills do you have? "))
+            total_dollars += calculate_dollars(money)
         
         elif user_input == 'E':
+            total = total_dollars + total_cents
             print()
-            Change = product_price - total
-            print("You have a total of ", total , " Dollars")
+            change = product_price - total
+            print("You have a total of $", total)
             
-            if Change <0 and product_price != 0:
-                print("we owe ", round(Change,2))
+            if change < 0 and product_price != 0:
+                print("We owe you $", round(change, 2))
+                
             break
-    
     
     else:
         print("**Option not available**")
-    
-    
-    
