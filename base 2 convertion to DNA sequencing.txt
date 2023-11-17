@@ -1,0 +1,59 @@
+#By Yousef Omar
+#Python
+
+def b2encoding(words): #information to binary (Step 1)
+    number2 = ""
+    for char in words:
+        if char == '0':
+            number2 += '0000'
+        elif char == '1':
+            number2 += '0001'
+        elif char == '2':
+            number2 += '0010'
+        elif char == '3':
+            number2 += '0011'
+        elif char == '4':
+            number2 += '0100'
+        elif char == '5':
+            number2 += '0101'
+        elif char == '6':
+            number2 += '0110'
+        elif char == '7':
+            number2 += '0111'
+        elif char == '8':
+            number2 += '1000'
+        elif char == '9':
+            number2 += '1001'
+        elif char == 'A':
+            number2 += '1010'
+        elif char == 'B':
+            number2 += '1011'
+        elif char == 'C':
+            number2 += '1100'
+        elif char == 'D':
+            number2 += '1101'
+        elif char == 'E':
+            number2 += '1110'
+        elif char == 'F':
+            number2 += '1111'
+    return number2
+
+def ConvACGT(binary):
+    ACGT = ""
+    for i in range(0, len(binary), 2):
+        segment = binary[i:i+2]
+        if segment == '00':
+            ACGT += 'A'
+        elif segment == '01':
+            ACGT += 'C'
+        elif segment == '10':
+            ACGT += 'G'
+        elif segment == '11':
+            ACGT += 'T'
+    return ACGT
+
+info = "1A3F"                       #Given information
+resultB = b2encoding(info.upper())  #turn to binary
+resultA = ConvACGT(resultB)
+print(resultB)                      #print binary
+print(resultA)
