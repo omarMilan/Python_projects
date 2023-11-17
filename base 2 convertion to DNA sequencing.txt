@@ -56,4 +56,4 @@ info = "1A3F"                       #Given information
 resultB = b2encoding(info.upper())  #turn to binary
 resultA = ConvACGT(resultB)
 print(resultB)                      #print binary
-print(resultA)
+print(resultA)                      #print DNA sequences
